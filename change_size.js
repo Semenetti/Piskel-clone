@@ -2,21 +2,21 @@ const btn32 = document.getElementById("btn32x32");
 const btn64 = document.getElementById("btn64x64");
 const btn128 = document.getElementById("btn128x128");
 
-let scale = 32;
+let scale = 20;
 
 btn32.addEventListener("click", () => {
-  drawCanvas(32);
-  scale = 32;
+  drawCanvas(20);
+  scale = 20;
 });
 
 btn64.addEventListener("click", () => {
-  drawCanvas(64);
-  scale = 64;
+  drawCanvas(10);
+  scale = 10;
 });
 
 btn128.addEventListener("click", () => {
-  drawCanvas(128);
-  scale = 128;
+  drawCanvas(5);
+  scale = 5;
 });
 
 export function drawCanvas(size) {
@@ -25,14 +25,14 @@ export function drawCanvas(size) {
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.beginPath();
 
-  for (var x = 0; x <= 512; x += size) {
+  for (var x = 0; x <= 640; x += size) {
     context.moveTo(x, 0);
-    context.lineTo(x, 512);
+    context.lineTo(x, 640);
   }
 
-  for (var y = 0; y <= 512; y += size) {
+  for (var y = 0; y <= 640; y += size) {
     context.moveTo(0, y);
-    context.lineTo(512, y);
+    context.lineTo(640, y);
   }
 
   context.strokeStyle = "#ddd";
