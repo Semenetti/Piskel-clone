@@ -35,15 +35,15 @@
 
 .Toolbar {
   float: left;
-  font-family: 'Trebuchet MS';
+  font-family: "Trebuchet MS";
   font-size: 14px;
   font-variant: small-caps;
   text-align: center;
-  background: #F2F7FE;
+  background: #f2f7fe;
   padding: 10px 15px 3px 10px;
   margin-bottom: 1px;
   margin-right: 1px;
-  border: 1px solid #7B899B;
+  border: 1px solid #7b899b;
 }
 
 .Toolbar img {
@@ -80,5 +80,20 @@ li {
 
 ul {
   padding: 0;
+}
+
+.frameBox {
+  border: 2px solid red;
+  width: 150px;
+  height: 150px;
+  background-size: 100%;
+  margin-top: 5px;
+}
+
+.frames__mini_view {
+  position: relative;
+  height: 640px;
+  width: 154px;
+  overflow: auto;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <title>Piskel-clone</title>    
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Piskel-clone</title>
+  </head>
+  <body>
     <div class="wrapper">
-        <div class="navigation">
-            <div class="nav-blocks">
-                <div class="nav"></div>
-                <div class="nav"></div>
-                <div class="nav"></div>
-            </div>
-            <div class="nav-blocks">Piskel-clone</div>  
+      <div class="navigation">
+        <div class="nav-blocks">
+          <div class="nav"></div>
+          <div class="nav"></div>
+          <div class="nav"></div>
         </div>
-        <div class="row">
-            <div class="Toolbar">
-                    - Инструменты -<br>
-                    <img id="Pen" src="./assets/pencil.svg" alt=""> <br>
-                    <input type="color" id="head" name="head" value="#000000">
-            </div>      
+        <div class="nav-blocks">Piskel-clone</div>
+      </div>
+      <div class="row">
+        <div class="Toolbar">
+          - Инструменты -<br />
+          <img id="Pen" src="./assets/pencil.svg" alt="" /> <br />
+          <input type="color" id="head" name="head" value="#000000" />
+        </div>
+        <div class="frames__mini_view" id="canvas_preview"></div>
         <div class="canvas-block">
-            <canvas id="canvas_block" width="640px" height="640px" ></canvas>                                              
+          <canvas id="canvas_block" width="640px" height="640px"></canvas>
         </div>
-        <div class="Toolbar weight" disabled>         
-            <div class="button-block">
-                - Панель для переключения размера поля
-                <ul>
-                    <li><button id="btn32x32">32x32</button></li>
-                    <li><button id="btn64x64">64x64</button></li>
-                    <li><button id="btn128x128">128x128</button></li>
-                </ul>
-            </div>
+        <div class="Toolbar weight" disabled>
+          <div class="button-block">
+            - Панель для переключения размера поля
+            <ul>
+              <li><button id="btn32x32">32x32</button></li>
+              <li><button id="btn64x64">64x64</button></li>
+              <li><button id="btn128x128">128x128</button></li>
+              <br />
+              - Добавление и удаление
+              <li><button id="new">New Frame</button></li>
+              <li><button id="remove">Delete Frame</button></li>
+            </ul>
+          </div>
         </div>
-    </div>
-        
+      </div>
     </div>
     <script src="main.js" type="module"></script>
-</body>
+  </body>
 </html>

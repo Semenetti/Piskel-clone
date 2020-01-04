@@ -37,6 +37,7 @@ export function drawCanvas(size) {
 
   context.strokeStyle = "#ddd";
   context.stroke();
+  localStorage.setItem(canvas, canvas.toDataURL());
 }
 
 export { scale };
