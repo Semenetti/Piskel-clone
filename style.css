@@ -88,12 +88,27 @@ ul {
   height: 150px;
   background-size: 100%;
   margin-top: 5px;
+  position: relative;
+  text-align: right;
 }
 
 .frames__mini_view {
   position: relative;
   height: 640px;
-  width: 154px;
+  width: 172px;
   overflow: auto;
+}
+
+.frames {
+  height: 256px;
+  width: 256px;
+  border: 2px solid red;
+  background-size: cover;
+}
+
+.delete_btn {
+  text-align: center;
+  height: 25px;
+  width: 25px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -2,6 +2,7 @@ let dataURL;
 let cashedImg;
 let downloadedImg = new Image();
 let ctx;
+let framesCash = [];
 const canvas = document.getElementById("canvas_block");
 
 import { drawCanvas, scale } from "./change_size.js";
@@ -32,15 +33,16 @@ newFrame.addEventListener("click", () => {
   drawCanvas(scale);
 });
 
-let delFrame = document.getElementById("remove");
+let clearCanvas = document.getElementById("remove");
 
-delFrame.addEventListener("click", () => {
-  let element = document.getElementById("canvas_preview");
-  element.lastChild ? element.removeChild(element.lastChild) : false;
+clearCanvas.addEventListener("click", () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawCanvas(scale);
 });
 
 function scaleImage(scale) {
   dataURL = localStorage.getItem(canvas);
+  framesCash.push(dataURL);
   if (dataURL != null) {
     downloadedImg.src = dataURL;
     downloadedImg.onload = function() {
@@ -51,8 +53,31 @@ function scaleImage(scale) {
       let ctx2 = canvas2.getContext("2d");
       ctx2.drawImage(downloadedImg, 0, 0, scale, scale);
       let frameBox = document.createElement("div");
+      let delBtn = document.createElement("button");
       frameBox.className = "frameBox";
+      delBtn.className = "delete_btn";
+      delBtn.innerHTML = "X";
+
+      frameBox.addEventListener("click", e => {
+        localStorage.setItem(canvas, canvas.toDataURL());
+        let bgImgSrc = e.toElement.style.backgroundImage.slice(5, -2);
+        downloadedImg.src = bgImgSrc;
+        downloadedImg.onload = function() {
+          let canvas2 = document.getElementById("canvas_block");
+          canvas2.height = 640;
+          canvas2.width = 640;
+          let ctx = canvas2.getContext("2d");
+          ctx.drawImage(downloadedImg, 0, 0, 640, 640);
+        };
+      });
+
+      delBtn.addEventListener("click", e => {
+        let miniFrame = e.toElement.offsetParent;
+        miniFrame.remove();
+      });
+
       frameBox.style.backgroundImage = `url('${dataURL}')`;
+      frameBox.append(delBtn);
       document.getElementById("canvas_preview").append(frameBox);
     };
   }
