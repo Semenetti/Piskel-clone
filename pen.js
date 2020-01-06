@@ -1,5 +1,6 @@
-let previousColorElement;
 let canvas = document.getElementById("canvas_block");
+let hiddenCanvas = document.getElementById("hidden_canvas");
+let hiddenContext = hiddenCanvas.getContext("2d");
 let context = canvas.getContext("2d");
 let head = document.getElementById("head");
 let isDrawing = false;
@@ -7,7 +8,7 @@ let pen = document.getElementById("Pen");
 
 import { scale } from "./change_size.js";
 import { eyeDropper } from "./eye_dropper.js";
-import { bucket, changeBackground } from "./bucket.js";
+import { bucket } from "./bucket.js";
 
 export { clearClassName };
 
@@ -22,21 +23,13 @@ export function autoDrawing() {
 head.addEventListener("input", changeColor, false);
 
 export function getColor() {
-  bucket.className === "Selected" ? changeBackground() : false;
   return head.value;
 }
 
-function changeColor(imgElement) {
+function changeColor() {
   // 	Меняем текущий цвет рисования
   context.strokeStyle = getColor();
-
-  // Меняем стиль элемента <img>, по которому щелкнули
-  imgElement.className = "Selected";
-
-  // Возвращаем ранее выбранный элемент <img> в нормальное состояние
-  if (previousColorElement != null) previousColorElement.className = "";
-
-  previousColorElement = imgElement;
+  hiddenContext.strokeStyle = getColor();
 }
 
 function startDrawing(e) {
@@ -45,9 +38,14 @@ function startDrawing(e) {
 
   // Создаем новый путь (с текущим цветом и толщиной линии)
   context.beginPath();
+  hiddenContext.beginPath();
 
   // Нажатием левой кнопки мыши помещаем "кисть" на холст
   context.moveTo(e.pageX - canvas.offsetLeft, e.pageY - canvas.offsetTop);
+  hiddenContext.moveTo(
+    e.pageX - hiddenCanvas.offsetLeft,
+    e.pageY - hiddenCanvas.offsetTop
+  );
 }
 
 function draw(e) {
@@ -64,8 +62,16 @@ function draw(e) {
       scale,
       scale
     );
+    hiddenContext.fillRect(
+      Math.floor(x / scale) * scale,
+      Math.floor(y / scale) * scale,
+      scale,
+      scale
+    );
     context.fillStyle = getColor();
+    hiddenContext.fillStyle = getColor();
     context.stroke();
+    hiddenContext.stroke();
   }
 }
 
