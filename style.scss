@@ -86,6 +86,8 @@ ul {
   text-align: center;
   height: 25px;
   width: 25px;
+  background: url("./assets/delbtn.jpg") center no-repeat;
+  background-size: cover;
 }
 .tools {
   display: flex;
@@ -110,9 +112,6 @@ img.Selected {
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 15px;
-  button {
-    width: 48%;
-  }
   .fps__block {
     display: flex;
     justify-content: space-around;
@@ -130,6 +129,30 @@ img.Selected {
 }
 .video_block {
   background-size: cover;
+  text-align: right;
+}
+#fs {
+  width: 30px;
+  height: 30px;
+  background: url("./assets/fullscreen.png") center no-repeat;
+  background-size: cover;
+}
+#fs:focus,
+#start:focus,
+#stop:focus {
+  outline: none;
+}
+#start {
+  width: 40px;
+  height: 40px;
+  background: url("./assets/Play.jpg") center no-repeat;
+  background-size: cover;
+}
+#stop {
+  width: 40px;
+  height: 40px;
+  background: url("./assets/stop.png") center no-repeat;
+  background-size: cover;
 }
 .current__FPS {
   background: lightseagreen;
@@ -137,12 +160,14 @@ img.Selected {
   font-weight: bold;
 }
 .animation__on {
-  background: rosybrown;
-  color: #ffffff;
-  font-weight: bold;
+  opacity: 0.2;
 }
 .animation__off {
-  background: red;
-  color: #ffffff;
-  font-weight: bold;
+  opacity: 1;
+}
+:-webkit-full-screen {
+  background: #fff;
+  background-size: initial;
+  background-repeat: no-repeat;
+  background-position: center;
 }

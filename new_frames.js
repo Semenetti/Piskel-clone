@@ -57,7 +57,6 @@ function scaleImage(scale) {
       let delBtn = document.createElement("button");
       frameBox.className = "frameBox";
       delBtn.className = "delete_btn";
-      delBtn.innerHTML = "X";
 
       frameBox.addEventListener("click", e => {
         localStorage.setItem(canvas, canvas.toDataURL());
