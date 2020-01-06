@@ -7,6 +7,7 @@ let pen = document.getElementById("Pen");
 
 import { scale } from "./change_size.js";
 import { eyeDropper } from "./eye_dropper.js";
+import { bucket, changeBackground } from "./bucket.js";
 
 export { clearClassName };
 
@@ -20,7 +21,8 @@ export function autoDrawing() {
 
 head.addEventListener("input", changeColor, false);
 
-function getColor() {
+export function getColor() {
+  bucket.className === "Selected" ? changeBackground() : false;
   return head.value;
 }
 
@@ -49,7 +51,7 @@ function startDrawing(e) {
 }
 
 function draw(e) {
-  if (isDrawing == true) {
+  if (isDrawing == true && pen.className == "Selected") {
     // Определяем текущие координаты указателя мыши
     var x = e.pageX - canvas.offsetLeft;
     var y = e.pageY - canvas.offsetTop;
@@ -80,4 +82,5 @@ pen.addEventListener("click", () => {
 function clearClassName() {
   pen.className = "";
   eyeDropper.className = "";
+  bucket.className = "";
 }

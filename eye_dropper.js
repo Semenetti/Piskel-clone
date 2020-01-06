@@ -9,7 +9,6 @@ import { clearClassName } from "./pen.js";
 export { eyeDropper };
 
 export function pickColor() {
-  eyeDropper.classList.add("Selected");
   canvas.onmousedown = down;
 }
 
