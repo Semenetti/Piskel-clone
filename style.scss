@@ -100,3 +100,49 @@ ul {
 img.Selected {
   border: 2px groove #e4f0fe;
 }
+.video_block {
+  margin-bottom: 15px;
+  border: 1px solid gray;
+  height: 256px;
+}
+.animation_btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  button {
+    width: 48%;
+  }
+  .fps__block {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    button {
+      flex-basis: 25%;
+      border-radius: 50%;
+      width: 10px;
+      height: 40px;
+    }
+    button:focus {
+      outline: none;
+    }
+  }
+}
+.video_block {
+  background-size: cover;
+}
+.current__FPS {
+  background: lightseagreen;
+  color: #ffffff;
+  font-weight: bold;
+}
+.animation__on {
+  background: rosybrown;
+  color: #ffffff;
+  font-weight: bold;
+}
+.animation__off {
+  background: red;
+  color: #ffffff;
+  font-weight: bold;
+}

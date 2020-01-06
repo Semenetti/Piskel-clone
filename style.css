@@ -133,4 +133,71 @@ ul {
 img.Selected {
   border: 2px groove #e4f0fe;
 }
+
+.video_block {
+  margin-bottom: 15px;
+  border: 1px solid gray;
+  height: 256px;
+}
+
+.animation_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.animation_btn button {
+  width: 48%;
+}
+
+.animation_btn .fps__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.animation_btn .fps__block button {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  border-radius: 50%;
+  width: 10px;
+  height: 40px;
+}
+
+.animation_btn .fps__block button:focus {
+  outline: none;
+}
+
+.video_block {
+  background-size: cover;
+}
+
+.current__FPS {
+  background: lightseagreen;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.animation__on {
+  background: rosybrown;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.animation__off {
+  background: red;
+  color: #ffffff;
+  font-weight: bold;
+}
 /*# sourceMappingURL=style.css.map */

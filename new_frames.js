@@ -6,6 +6,7 @@ let framesCash = [];
 const canvas = document.getElementById("canvas_block");
 
 import { drawCanvas, scale } from "./change_size.js";
+export { framesCash };
 
 export function onloadGrid() {
   ctx = canvas.getContext("2d");
@@ -73,6 +74,11 @@ function scaleImage(scale) {
 
       delBtn.addEventListener("click", e => {
         let miniFrame = e.toElement.offsetParent;
+        let bgImgSrc = e.toElement.offsetParent.style.backgroundImage.slice(
+          5,
+          -2
+        );
+        framesCash.splice(framesCash.indexOf(bgImgSrc), 1);
         miniFrame.remove();
       });
 

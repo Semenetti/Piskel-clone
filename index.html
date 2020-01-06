@@ -38,18 +38,32 @@
         <div class="canvas-block">
           <canvas id="canvas_block" width="640px" height="640px"></canvas>
         </div>
-        <div class="Toolbar weight" disabled>
-          <div class="button-block">
-            - Панель для переключения размера поля
-            <ul>
-              <li><button id="btn32x32">32x32</button></li>
-              <li><button id="btn64x64">64x64</button></li>
-              <li><button id="btn128x128">128x128</button></li>
-              <br />
-              - Добавление и очистка
-              <li><button id="new">New Frame</button></li>
-              <li><button id="remove">Clear Canvas</button></li>
-            </ul>
+        <div class="tools">
+          <div class="video_block" id="video"></div>
+          <div class="animation_btn">
+            <div class="fps__block">
+              <button class="current__FPS" id="6fps">6FPS</button>
+              <button id="12fps">12FPS</button>
+              <button id="24fps">24FPS</button>
+            </div>
+            <div class="start_stop__block">              
+              <button id="start">Start</button>
+              <button id="stop" disabled>Stop</button>
+            </div>
+          </div>
+          <div class="Toolbar weight" disabled>
+            <div class="button-block">
+              - Панель для переключения размера поля
+              <ul>
+                <li><button id="btn32x32">32x32</button></li>
+                <li><button id="btn64x64">64x64</button></li>
+                <li><button id="btn128x128">128x128</button></li>
+                <br />
+                - Добавление и очистка
+                <li><button id="new">New Frame</button></li>
+                <li><button id="remove">Clear Canvas</button></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
