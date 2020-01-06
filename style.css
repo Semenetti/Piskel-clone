@@ -83,6 +83,20 @@ ul {
   padding: 0;
 }
 
+.canvas-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.canvas-block button {
+  margin-left: 90%;
+}
+
 .frameBox {
   border: 2px solid red;
   width: 150px;
@@ -206,6 +220,13 @@ img.Selected {
   width: 40px;
   height: 40px;
   background: url("./assets/stop.png") center no-repeat;
+  background-size: cover;
+}
+
+#download {
+  width: 40px;
+  height: 40px;
+  background: url("./assets/download.jpg") center no-repeat;
   background-size: cover;
 }
 

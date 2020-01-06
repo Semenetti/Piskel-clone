@@ -61,6 +61,13 @@ li {
 ul {
   padding: 0;
 }
+.canvas-block {
+  display: flex;
+  flex-direction: column;
+  button {
+    margin-left: 90%;
+  }
+}
 .frameBox {
   border: 2px solid red;
   width: 150px;
@@ -152,6 +159,12 @@ img.Selected {
   width: 40px;
   height: 40px;
   background: url("./assets/stop.png") center no-repeat;
+  background-size: cover;
+}
+#download {
+  width: 40px;
+  height: 40px;
+  background: url("./assets/download.jpg") center no-repeat;
   background-size: cover;
 }
 .current__FPS {
