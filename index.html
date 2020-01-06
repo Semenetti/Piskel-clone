@@ -18,10 +18,21 @@
         <div class="nav-blocks">Piskel-clone</div>
       </div>
       <div class="row">
-        <div class="Toolbar">
-          - Инструменты -<br />
-          <img id="Pen" src="./assets/pencil.svg" alt="" /> <br />
-          <input type="color" id="head" name="head" value="#000000" />
+        <div class="tools">
+
+          <div class="Toolbar">
+            Инструменты<br>
+            <img id="Pen" src="./assets/pencil.svg" alt="" />
+            <!-- <input type="color" id="head" name="head" value="#000000" /> -->
+            <img id="eyeDropper" src="./assets/eye-dropper.svg" alt="">
+          </div>
+          <div class="Toolbar">           
+            <p>Выбор цвета:</p><br>   
+             <div>
+                 <input type="color" id="head" name="head" value="#000000">
+                 <button id="pickedcolor">Picked color</button>
+             </div>           
+          </div>
         </div>
         <div class="frames__mini_view" id="canvas_preview"></div>
         <div class="canvas-block">

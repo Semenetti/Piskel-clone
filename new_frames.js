@@ -7,7 +7,7 @@ const canvas = document.getElementById("canvas_block");
 
 import { drawCanvas, scale } from "./change_size.js";
 
-export function onloadImage() {
+export function onloadGrid() {
   ctx = canvas.getContext("2d");
   cashedImg = new Image();
   dataURL = localStorage.getItem(canvas);

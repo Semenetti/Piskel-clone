@@ -3,13 +3,14 @@ let canvas = document.getElementById("canvas_block");
 let context = canvas.getContext("2d");
 let head = document.getElementById("head");
 let isDrawing = false;
+let pen = document.getElementById("Pen");
 
 import { scale } from "./change_size.js";
+import { eyeDropper } from "./eye_dropper.js";
+
+export { clearClassName };
 
 export function autoDrawing() {
-  canvas = document.getElementById("canvas_block");
-  context = canvas.getContext("2d");
-
   // Подключаем требуемые для рисования события
   canvas.onmousedown = startDrawing;
   canvas.onmouseup = stopDrawing;
@@ -68,4 +69,15 @@ function draw(e) {
 
 function stopDrawing() {
   isDrawing = false;
+}
+
+pen.addEventListener("click", () => {
+  clearClassName();
+  pen.className = "Selected";
+  autoDrawing();
+});
+
+function clearClassName() {
+  pen.className = "";
+  eyeDropper.className = "";
 }

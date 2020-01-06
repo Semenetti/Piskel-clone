@@ -44,6 +44,7 @@
   margin-bottom: 1px;
   margin-right: 1px;
   border: 1px solid #7b899b;
+  display: block;
 }
 
 .Toolbar img {
@@ -110,5 +111,26 @@ ul {
   text-align: center;
   height: 25px;
   width: 25px;
+}
+
+.tools {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#pickedcolor {
+  border: 2px solid red;
+  margin: 5px auto;
+  width: 50%;
+  padding: 10px;
+}
+
+img.Selected {
+  border: 2px groove #e4f0fe;
 }
 /*# sourceMappingURL=style.css.map */
