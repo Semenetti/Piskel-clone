@@ -151,9 +151,11 @@ img.Selected {
 }
 
 .video_block {
-  margin-bottom: 15px;
   border: 1px solid gray;
   height: 256px;
+  width: 256px;
+  position: relative;
+  margin: 0 auto 15px;
 }
 
 .animation_btn {

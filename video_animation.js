@@ -1,4 +1,5 @@
 import { framesCash } from "./new_frames.js";
+import { removeCanvas } from "./animation_preview.js";
 
 let video = document.getElementById("video");
 let stop = document.getElementById("stop");
@@ -34,7 +35,7 @@ stop.addEventListener("click", () => {
 function btnAnimation() {
   if (start.hasAttribute("disabled", "true")) {
     start.removeAttribute("disabled", "true");
-    stop.setAttribute("disabled", "true");
+    stop.setAttribute("disabled", "true");    
     start.className = "animation__off";
     stop.className = "animation__on";
   } else {
@@ -80,6 +81,7 @@ let fullscreenMode = document.getElementById("fs");
 
 fullscreenMode.addEventListener("click", () => {
   enterFullscreen("video");
+  removeCanvas();
 });
 
 document.cancelFullScreen =
