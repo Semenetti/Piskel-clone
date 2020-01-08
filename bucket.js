@@ -11,7 +11,7 @@ export { bucket };
 let color = document.getElementById("head");
 color.addEventListener("change", changeBackground, false);
 
-function changeBackground() {
+export function changeBackground() {
   bucket.className === "Selected" ? (canvas.onmousedown = draw) : false;
 }
 

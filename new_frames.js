@@ -47,7 +47,7 @@ clearCanvas.addEventListener("click", () => {
   drawCanvas(scale);
 });
 
-function toClearCanvas() {
+export function toClearCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   hiddenCtx.clearRect(0, 0, canvas.width, canvas.height);
 }

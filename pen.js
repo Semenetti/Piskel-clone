@@ -10,7 +10,7 @@ import { scale } from "./change_size.js";
 import { eyeDropper } from "./eye_dropper.js";
 import { bucket } from "./bucket.js";
 
-export { clearClassName };
+export { clearClassName, pen };
 
 export function autoDrawing() {
   // Подключаем требуемые для рисования события
