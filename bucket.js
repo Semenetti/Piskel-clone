@@ -12,7 +12,7 @@ let color = document.getElementById("head");
 color.addEventListener("change", changeBackground, false);
 
 function changeBackground() {
-  canvas.onmousedown = draw;
+  bucket.className === "Selected" ? (canvas.onmousedown = draw) : false;
 }
 
 function draw() {
