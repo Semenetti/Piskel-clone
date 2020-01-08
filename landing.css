@@ -1,0 +1,77 @@
+.nav__text {
+  color: #ffffff;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 80vh;
+  max-height: 90vh;
+  max-width: 90vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.info__text {
+  height: 500px;
+  width: 500px;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.info__screenshot {
+  height: 500px;
+  width: 500px;
+}
+
+.info__screenshot .imgbox {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/screenshot.png") center no-repeat;
+  background-size: 90%;
+}
+
+.animation_block {
+  text-align: center;
+}
+
+.animation_block #animation {
+  position: relative;
+  margin: 0 auto;
+  height: 300px;
+  width: 300px;
+}
+
+#toApp {
+  margin: 15px auto 0;
+}
+
+.overview {
+  margin-left: 15px;
+}
+
+.overview .description {
+  font-weight: bold;
+  font-family: serif;
+  font-size: 18px;
+}
+/*# sourceMappingURL=landing.css.map */

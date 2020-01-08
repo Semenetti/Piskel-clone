@@ -4,74 +4,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Piskel-clone</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="landing.css" />
+    <title>Landing Page</title>
   </head>
   <body>
-    <div class="wrapper">
-      <div class="navigation">
-        <div class="nav-blocks">
-          <div class="nav"></div>
-          <div class="nav"></div>
-          <div class="nav"></div>
-        </div>
-        <div class="nav-blocks">Piskel-clone</div>
-      </div>
-      <div class="row">
-        <div class="tools">
-          <div class="Toolbar">
-            Инструменты<br />
-            <img id="Pen" class="Selected" src="./assets/pencil.svg" alt="" />
-            <img id="bucket" src="./assets/paint bucket.svg" alt="" />
-            <img id="eyeDropper" src="./assets/eye-dropper.svg" alt="" />
-          </div>
-          <div class="Toolbar">
-            <p>Выбор цвета:</p>
-            <br />
-            <div>
-              <input type="color" id="head" name="head" value="#000000" />
-              <button id="pickedcolor">Picked color</button>
-            </div>
-          </div>
-        </div>
-        <div class="frames__mini_view" id="canvas_preview"></div>
-        <div class="canvas-block">
-          <canvas id="canvas_block" width="640px" height="640px"></canvas>
-          <button id="download"></button>
-        </div>
-        <div class="tools">
-          <div class="video_block" id="video">
-            <button id="fs"></button>
-          </div>
-          <div class="animation_btn">
-            <div class="fps__block">
-              <button class="current__FPS" id="6fps">6FPS</button>
-              <button id="12fps">12FPS</button>
-              <button id="24fps">24FPS</button>
-            </div>
-            <div class="start_stop__block">
-              <button id="start"></button>
-              <button id="stop" disabled class="animation__on"></button>
-            </div>
-          </div>
-          <div class="Toolbar weight" disabled>
-            <div class="button-block">
-              - Панель для переключения размера поля
-              <ul>
-                <li><button id="btn32x32">32x32</button></li>
-                <li><button id="btn64x64">64x64</button></li>
-                <li><button id="btn128x128">128x128</button></li>
-                <br />
-                - Добавление и очистка
-                <li><button id="new">New Frame</button></li>
-                <li><button id="remove">Clear Canvas</button></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <canvas id="hidden_canvas" width="640px" height="640px"></canvas>
+    <div class="pos-f-t">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">          
+          <h5 class="text-white h4">Andrei Semianenka</h5>
+          <p><a href="http://github.com/semenetti">Github</a></p>
+          <p class="text-muted">
+            <a href="https://www.linkedin.com/in/semenetti/">Linkedin</a> /
+            <a href="https://www.facebook.com/semenetti/">Facebook</a>
+          </p>
+        </div>      </div>
+      <nav class="navbar navbar-dark bg-dark">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarToggleExternalContent"
+          aria-controls="navbarToggleExternalContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="nav__text">Piskel-clone</div>
+      </nav>
     </div>
-    <script src="main.js" type="module"></script>
+    <div class="main">
+      <div class="info__text">
+          <div class="animation_block">
+              <div class="animation" id="animation"></div>
+              <button type="button" id="toApp" class="btn btn-warning"><a href="http://semenetti.github.io/piskel-clone/">Go to app</a></button class="btn btn-outline-warning">
+          </div>
+          <div class="overview" id="overview">
+              <ul>
+                  <div class="description">Functionality overview</div>
+                  <li>Pen</li>
+                  <li>Eye Dropper</li>
+                  <li>Bucket</li>
+                  <li>Frames</li>
+                  <li>etc</li>
+              </ul>
+          </div>
+      </div>
+      <div class="info__screenshot">
+        <div class="imgbox"></div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./landing.js"></script>
   </body>
 </html>

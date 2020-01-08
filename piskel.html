@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Piskel-clone</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="navigation">
+        <div class="nav-blocks">
+          <div class="nav"></div>
+          <div class="nav"></div>
+          <div class="nav"></div>
+        </div>
+        <div class="nav-blocks">Piskel-clone</div>
+      </div>
+      <div class="row">
+        <div class="tools">
+          <div class="Toolbar">
+            Инструменты<br />
+            <img id="Pen" class="Selected" src="./assets/pencil.svg" alt="" />
+            <img id="bucket" src="./assets/paint bucket.svg" alt="" />
+            <img id="eyeDropper" src="./assets/eye-dropper.svg" alt="" />
+          </div>
+          <div class="Toolbar">
+            <p>Выбор цвета:</p>
+            <br />
+            <div>
+              <input type="color" id="head" name="head" value="#000000" />
+              <button id="pickedcolor">Picked color</button>
+            </div>
+          </div>
+        </div>
+        <div class="frames__mini_view" id="canvas_preview"></div>
+        <div class="canvas-block">
+          <canvas id="canvas_block" width="640px" height="640px"></canvas>
+          <button id="download"></button>
+        </div>
+        <div class="tools">
+          <div class="video_block" id="video">
+            <button id="fs"></button>
+          </div>
+          <div class="animation_btn">
+            <div class="fps__block">
+              <button class="current__FPS" id="6fps">6FPS</button>
+              <button id="12fps">12FPS</button>
+              <button id="24fps">24FPS</button>
+            </div>
+            <div class="start_stop__block">
+              <button id="start"></button>
+              <button id="stop" disabled class="animation__on"></button>
+            </div>
+          </div>
+          <div class="Toolbar weight" disabled>
+            <div class="button-block">
+              - Панель для переключения размера поля
+              <ul>
+                <li><button id="btn32x32">32x32</button></li>
+                <li><button id="btn64x64">64x64</button></li>
+                <li><button id="btn128x128">128x128</button></li>
+                <br />
+                - Добавление и очистка
+                <li><button id="new">New Frame</button></li>
+                <li><button id="remove">Clear Canvas</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <canvas id="hidden_canvas" width="640px" height="640px"></canvas>
+    </div>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
