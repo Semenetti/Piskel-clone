@@ -89,4 +89,5 @@ function clearClassName() {
   pen.className = "";
   eyeDropper.className = "";
   bucket.className = "";
+  eraser.className = "";
 }

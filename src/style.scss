@@ -93,7 +93,7 @@ ul {
   text-align: center;
   height: 25px;
   width: 25px;
-  background: url("./assets/delbtn.jpg") center no-repeat;
+  background: url("./img/delbtn.jpg") center no-repeat;
   background-size: cover;
 }
 .tools {
@@ -143,7 +143,7 @@ img.Selected {
 #fs {
   width: 30px;
   height: 30px;
-  background: url("./assets/fullscreen.png") center no-repeat;
+  background: url("./img/fullscreen.png") center no-repeat;
   background-size: cover;
 }
 #fs:focus,
@@ -154,19 +154,19 @@ img.Selected {
 #start {
   width: 40px;
   height: 40px;
-  background: url("./assets/Play.jpg") center no-repeat;
+  background: url("./img/Play.jpg") center no-repeat;
   background-size: cover;
 }
 #stop {
   width: 40px;
   height: 40px;
-  background: url("./assets/stop.png") center no-repeat;
+  background: url("./img/stop.png") center no-repeat;
   background-size: cover;
 }
 #download {
   width: 40px;
   height: 40px;
-  background: url("./assets/download.jpg") center no-repeat;
+  background: url("./img/download.jpg") center no-repeat;
   background-size: cover;
 }
 .current__FPS {
