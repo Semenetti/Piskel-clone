@@ -45,7 +45,6 @@
   font-size: 12px;
 }
 .row {
-  height: 80vh;
   margin-top: 25px;
   display: flex;
   justify-content: space-around;
@@ -98,7 +97,7 @@ ul {
 }
 .tools {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
 }
 #pickedcolor {
   border: 2px solid red;
@@ -109,10 +108,10 @@ ul {
 img.Selected {
   border: 2px groove #e4f0fe;
 }
-.video_block {  
+.video_block {
   border: 1px solid gray;
   height: 256px;
-  width: 256px;;
+  width: 256px;
   position: relative;
   margin: 0 auto 15px;
 }
