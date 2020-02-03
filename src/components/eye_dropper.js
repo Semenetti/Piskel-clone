@@ -1,38 +1,39 @@
-let canvas = document.getElementById("canvas_block");
-let ctx = canvas.getContext("2d");
+import { clearClassName } from './pen.js';
 
-let eyeDropper = document.getElementById("eyeDropper");
-let pickedcolor = document.getElementById("pickedcolor");
-let currentColor = document.getElementById("head");
+const canvas = document.getElementById('canvas_block');
+const ctx = canvas.getContext('2d');
 
-import { clearClassName } from "./pen.js";
+const eyeDropper = document.getElementById('eyeDropper');
+const pickedcolor = document.getElementById('pickedcolor');
+const currentColor = document.getElementById('head');
+
 export { eyeDropper };
+
+function rgbToHex(r, g, b) {
+  if (r > 255 || g > 255 || b > 255) throw new Error('Invalid color component');
+  return ((r < 16) || (g < 8) || b).toString(16);
+}
+
+function down(e) {
+  const canvasX = Math.floor(e.pageX - canvas.offsetLeft);
+  const canvasY = Math.floor(e.pageY - canvas.offsetTop);
+  const imageData = ctx.getImageData(canvasX, canvasY, 1, 1);
+  const pixel = imageData.data;
+  const pickedColor = `${pixel[0]},${pixel[1]},${pixel[2]},${pixel[3]}`;
+  const hex = `#${`000000${rgbToHex(pixel[0], pixel[1], pixel[2])}`.slice(-6)}`;
+
+  pickedcolor.style.background = `rgba(${pickedColor})`;
+  pickedcolor.addEventListener('click', () => {
+    currentColor.value = hex;
+  });
+}
 
 export function pickColor() {
   canvas.onmousedown = down;
 }
 
-function down(e) {
-  let canvasX = Math.floor(e.pageX - canvas.offsetLeft);
-  let canvasY = Math.floor(e.pageY - canvas.offsetTop);
-  let imageData = ctx.getImageData(canvasX, canvasY, 1, 1);
-  let pixel = imageData.data;
-  let pickedColor = pixel[0] + "," + pixel[1] + "," + pixel[2] + "," + pixel[3];
-  let hex = "#" + ("000000" + rgbToHex(pixel[0], pixel[1], pixel[2])).slice(-6);
-
-  pickedcolor.style.background = "rgba(" + pickedColor + ")";
-  pickedcolor.addEventListener("click", () => {
-    currentColor.value = hex;
-  });
-}
-
-function rgbToHex(r, g, b) {
-  if (r > 255 || g > 255 || b > 255) throw "Invalid color component";
-  return ((r << 16) | (g << 8) | b).toString(16);
-}
-
-eyeDropper.addEventListener("click", () => {
+eyeDropper.addEventListener('click', () => {
   clearClassName();
-  eyeDropper.className = "Selected";
+  eyeDropper.className = 'Selected';
   pickColor();
 });

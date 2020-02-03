@@ -1,15 +1,15 @@
 export function exportCanvasAsPNG(id, fileName) {
-  var canvasElement = document.getElementById(id);
+  const canvasElement = document.getElementById(id);
 
-  var MIME_TYPE = "image/png";
+  const MIME_TYPE = 'image/png';
 
-  var imgURL = canvasElement.toDataURL(MIME_TYPE);
+  const imgURL = canvasElement.toDataURL(MIME_TYPE);
 
-  var dlLink = document.createElement("a");
+  const dlLink = document.createElement('a');
   dlLink.download = fileName;
   dlLink.href = imgURL;
   dlLink.dataset.downloadurl = [MIME_TYPE, dlLink.download, dlLink.href].join(
-    ":"
+    ':',
   );
 
   document.body.appendChild(dlLink);
@@ -17,8 +17,8 @@ export function exportCanvasAsPNG(id, fileName) {
   document.body.removeChild(dlLink);
 }
 
-let download = document.getElementById("download");
+const download = document.getElementById('download');
 
-download.addEventListener("click", () => {
-  exportCanvasAsPNG("canvas_block", "file");
+download.addEventListener('click', () => {
+  exportCanvasAsPNG('canvas_block', 'file');
 });

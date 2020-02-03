@@ -1,19 +1,14 @@
-import { clearClassName } from "./pen.js";
+import { clearClassName } from './pen.js';
 
-let canvas = document.getElementById("canvas_block");
-let hiddenCanvas = document.getElementById("hidden_canvas");
-let ctx = canvas.getContext("2d");
-let hiddenCtx = hiddenCanvas.getContext("2d");
-let bucket = document.getElementById("bucket");
+const canvas = document.getElementById('canvas_block');
+const hiddenCanvas = document.getElementById('hidden_canvas');
+const ctx = canvas.getContext('2d');
+const hiddenCtx = hiddenCanvas.getContext('2d');
+const bucket = document.getElementById('bucket');
 
 export { bucket };
 
-let color = document.getElementById("head");
-color.addEventListener("change", changeBackground);
-
-export function changeBackground() {
-  if (bucket.className === "Selected") canvas.onmousedown = draw;
-}
+const color = document.getElementById('head');
 
 function draw() {
   ctx.fillStyle = color.value;
@@ -22,8 +17,14 @@ function draw() {
   hiddenCtx.fillRect(0, 0, 640, 640);
 }
 
-bucket.addEventListener("click", () => {
+export function changeBackground() {
+  if (bucket.className === 'Selected') canvas.onmousedown = draw;
+}
+
+color.addEventListener('change', changeBackground);
+
+bucket.addEventListener('click', () => {
   clearClassName();
-  bucket.className = "Selected";
+  bucket.className = 'Selected';
   changeBackground();
 });

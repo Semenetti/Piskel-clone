@@ -1,36 +1,28 @@
-let canvas = document.getElementById("canvas_block");
-let hiddenCanvas = document.getElementById("hidden_canvas");
-let hiddenContext = hiddenCanvas.getContext("2d");
-let context = canvas.getContext("2d");
-let head = document.getElementById("head");
+import { currentScale } from './change_size.js';
+import { eyeDropper } from './eye_dropper.js';
+import { bucket } from './bucket.js';
+import { eraser } from './eraser.js';
+
+const canvas = document.getElementById('canvas_block');
+const hiddenCanvas = document.getElementById('hidden_canvas');
+const hiddenContext = hiddenCanvas.getContext('2d');
+const context = canvas.getContext('2d');
+const head = document.getElementById('head');
 let isDrawing = false;
-let pen = document.getElementById("Pen");
-
-import { scale } from "./change_size.js";
-import { eyeDropper } from "./eye_dropper.js";
-import { bucket } from "./bucket.js";
-
-export { clearClassName, pen };
-
-export function autoDrawing() {
-  // Подключаем требуемые для рисования события
-  canvas.onmousedown = startDrawing;
-  canvas.onmouseup = stopDrawing;
-  canvas.onmouseout = stopDrawing;
-  canvas.onmousemove = draw;
-}
-
-head.addEventListener("input", changeColor, false);
+const pen = document.getElementById('Pen');
+const scale = currentScale.scaleValue;
 
 export function getColor() {
   return head.value;
 }
 
 function changeColor() {
-  // 	Меняем текущий цвет рисования
+  // Меняем текущий цвет рисования
   context.strokeStyle = getColor();
   hiddenContext.strokeStyle = getColor();
 }
+
+head.addEventListener('input', changeColor, false);
 
 function startDrawing(e) {
   // Начинаем рисовать
@@ -44,29 +36,29 @@ function startDrawing(e) {
   context.moveTo(e.pageX - canvas.offsetLeft, e.pageY - canvas.offsetTop);
   hiddenContext.moveTo(
     e.pageX - hiddenCanvas.offsetLeft,
-    e.pageY - hiddenCanvas.offsetTop
+    e.pageY - hiddenCanvas.offsetTop,
   );
 }
 
 function draw(e) {
-  if (isDrawing == true && pen.className == "Selected") {
+  if (isDrawing === true && pen.className === 'Selected') {
     // Определяем текущие координаты указателя мыши
-    var x = e.pageX - canvas.offsetLeft;
-    var y = e.pageY - canvas.offsetTop;
+    const x = e.pageX - canvas.offsetLeft;
+    const y = e.pageY - canvas.offsetTop;
 
     // Рисуем линию до новой координаты
-    //context.lineTo(x, y);
+    // context.lineTo(x, y);
     context.fillRect(
       Math.floor(x / scale) * scale,
       Math.floor(y / scale) * scale,
       scale,
-      scale
+      scale,
     );
     hiddenContext.fillRect(
       Math.floor(x / scale) * scale,
       Math.floor(y / scale) * scale,
       scale,
-      scale
+      scale,
     );
     context.fillStyle = getColor();
     hiddenContext.fillStyle = getColor();
@@ -79,15 +71,25 @@ function stopDrawing() {
   isDrawing = false;
 }
 
-pen.addEventListener("click", () => {
+export function autoDrawing() {
+  // Подключаем требуемые для рисования события
+  canvas.onmousedown = startDrawing;
+  canvas.onmouseup = stopDrawing;
+  canvas.onmouseout = stopDrawing;
+  canvas.onmousemove = draw;
+}
+
+function clearClassName() {
+  pen.className = '';
+  eyeDropper.className = '';
+  bucket.className = '';
+  eraser.className = '';
+}
+
+pen.addEventListener('click', () => {
   clearClassName();
-  pen.className = "Selected";
+  pen.className = 'Selected';
   autoDrawing();
 });
 
-function clearClassName() {
-  pen.className = "";
-  eyeDropper.className = "";
-  bucket.className = "";
-  eraser.className = "";
-}
+export { clearClassName, pen };

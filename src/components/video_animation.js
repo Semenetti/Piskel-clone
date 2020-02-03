@@ -1,10 +1,19 @@
-import { framesCash } from "./new_frames.js";
-import { removeCanvas } from "./animation_preview.js";
+import { framesCash } from './new_frames.js';
+import { removeCanvas } from './animation_preview.js';
 
-let video = document.getElementById("video");
-let stop = document.getElementById("stop");
-let start = document.getElementById("start");
+const video = document.getElementById('video');
+const stop = document.getElementById('stop');
+const start = document.getElementById('start');
 let anim = true;
+
+const btn6fps = document.getElementById('6fps');
+const btn12fps = document.getElementById('12fps');
+const btn24fps = document.getElementById('24fps');
+let currentFps = Math.round(1000 / 6);
+
+function continueAnimation() {
+  return anim;
+}
 
 export function printNumbers(from, to, fps) {
   let current = from;
@@ -17,118 +26,113 @@ export function printNumbers(from, to, fps) {
       printNumbers(0, framesCash.length - 1, currentFps);
     }
     continueAnimation();
-    current++;
+    current += 1;
   }, fps);
 }
 
-start.addEventListener("click", () => {
+function btnAnimation() {
+  if (start.hasAttribute('disabled', 'true')) {
+    start.removeAttribute('disabled', 'true');
+    stop.setAttribute('disabled', 'true');
+    start.className = 'animation__off';
+    stop.className = 'animation__on';
+  } else {
+    start.setAttribute('disabled', 'true');
+    stop.removeAttribute('disabled', 'true');
+    start.className = 'animation__on';
+    stop.className = 'animation__off';
+  }
+}
+
+start.addEventListener('click', () => {
   anim = true;
   btnAnimation();
   printNumbers(0, framesCash.length - 1, currentFps);
 });
 
-stop.addEventListener("click", () => {
+stop.addEventListener('click', () => {
   anim = false;
   btnAnimation();
 });
 
-function btnAnimation() {
-  if (start.hasAttribute("disabled", "true")) {
-    start.removeAttribute("disabled", "true");
-    stop.setAttribute("disabled", "true");    
-    start.className = "animation__off";
-    stop.className = "animation__on";
-  } else {
-    start.setAttribute("disabled", "true");
-    stop.removeAttribute("disabled", "true");
-    start.className = "animation__on";
-    stop.className = "animation__off";
-  }
+function clearClassFps() {
+  btn6fps.className = '';
+  btn12fps.className = '';
+  btn24fps.className = '';
 }
 
-function continueAnimation() {
-  return anim;
-}
-
-let btn6fps = document.getElementById("6fps");
-let btn12fps = document.getElementById("12fps");
-let btn24fps = document.getElementById("24fps");
-let currentFps = Math.round(1000 / 6);
-
-btn6fps.addEventListener("click", () => {
+btn6fps.addEventListener('click', () => {
   clearClassFps();
-  btn6fps.className = "current__FPS";
+  btn6fps.className = 'current__FPS';
   currentFps = Math.round(1000 / 6);
 });
-btn12fps.addEventListener("click", () => {
+btn12fps.addEventListener('click', () => {
   clearClassFps();
-  btn12fps.className = "current__FPS";
+  btn12fps.className = 'current__FPS';
   currentFps = Math.round(1000 / 12);
 });
-btn24fps.addEventListener("click", () => {
+btn24fps.addEventListener('click', () => {
   clearClassFps();
-  btn24fps.className = "current__FPS";
+  btn24fps.className = 'current__FPS';
   currentFps = Math.round(1000 / 24);
 });
 
-function clearClassFps() {
-  btn6fps.className = "";
-  btn12fps.className = "";
-  btn24fps.className = "";
-}
+const fullscreenMode = document.getElementById('fs');
 
-let fullscreenMode = document.getElementById("fs");
-
-fullscreenMode.addEventListener("click", () => {
-  enterFullscreen("video");
-  removeCanvas();
-});
-
-document.cancelFullScreen =
-  document.cancelFullScreen ||
-  document.webkitCancelFullScreen ||
-  document.mozCancelFullScreen;
+document.cancelFullScreen = document.cancelFullScreen
+  || document.webkitCancelFullScreen
+  || document.mozCancelFullScreen;
 
 function onFullScreenEnter() {
+  /*eslint-disable */
+
   console.log("Enter fullscreen initiated from iframe");
 }
 
 function onFullScreenExit() {
   console.log("Exit fullscreen initiated from iframe");
+  /* eslint-enable */
 }
+
+// function exitFullscreen(id) {
+//   onFullScreenExit(id);
+//   document.cancelFullScreen();
+//   document.querySelector(`#${id} button`).onclick = () => {
+//     enterFullscreen(id);
+//   };
+// }
 
 function enterFullscreen(id) {
   onFullScreenEnter(id);
-  var el = document.getElementById(id);
-  var onfullscreenchange = function(e) {
-    var fullscreenElement =
-      document.fullscreenElement ||
-      document.mozFullscreenElement ||
-      document.webkitFullscreenElement;
-    var fullscreenEnabled =
-      document.fullscreenEnabled ||
-      document.mozFullscreenEnabled ||
-      document.webkitFullscreenEnabled;
-  };
+  const el = document.getElementById(id);
+  // const onfullscreenchange = () => {
+  //   const fullscreenElement = document.fullscreenElement
+  //     || document.mozFullscreenElement
+  //     || document.webkitFullscreenElement;
+  //   const fullscreenEnabled = document.fullscreenEnabled
+  //     || document.mozFullscreenEnabled
+  //     || document.webkitFullscreenEnabled;
+  // };
 
-  el.addEventListener("webkitfullscreenchange", onfullscreenchange);
-  el.addEventListener("mozfullscreenchange", onfullscreenchange);
-  el.addEventListener("fullscreenchange", onfullscreenchange);
+  el.addEventListener('webkitfullscreenchange', document.fullscreenElement);
+  el.addEventListener('mozfullscreenchange', document.fullscreenElement);
+  el.addEventListener('fullscreenchange', document.fullscreenElement);
 
   if (el.webkitRequestFullScreen) {
     el.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
   } else {
     el.mozRequestFullScreen();
   }
-  document.querySelector("#" + id + " button").onclick = function() {
-    exitFullscreen(id);
+  document.querySelector(`#${id} button`).onclick = () => {
+    onFullScreenExit(id);
+    document.cancelFullScreen();
+    document.querySelector(`#${id} button`).onclick = () => {
+      enterFullscreen(id);
+    };
   };
 }
 
-function exitFullscreen(id) {
-  onFullScreenExit(id);
-  document.cancelFullScreen();
-  document.querySelector("#" + id + " button").onclick = function() {
-    enterFullscreen(id);
-  };
-}
+fullscreenMode.addEventListener('click', () => {
+  enterFullscreen('video');
+  removeCanvas();
+});
