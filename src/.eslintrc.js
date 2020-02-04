@@ -12,8 +12,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module"
   },
-  settings: {
-    "import/extensions": { js: "always" }
-  },
-  rules: {}
+  rules: {
+    "import/extensions": ["error", { js: "always" }]
+  }
 };

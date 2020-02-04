@@ -15,7 +15,7 @@ function continueAnimation() {
   return anim;
 }
 
-export function printNumbers(from, to, fps) {
+export default function printNumbers(from, to, fps) {
   let current = from;
 
   setTimeout(function go() {

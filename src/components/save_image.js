@@ -1,4 +1,4 @@
-export function exportCanvasAsPNG(id, fileName) {
+export default function exportCanvasAsPNG(id, fileName) {
   const canvasElement = document.getElementById(id);
 
   const MIME_TYPE = 'image/png';
